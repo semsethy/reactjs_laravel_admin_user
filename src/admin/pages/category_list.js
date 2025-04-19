@@ -35,7 +35,7 @@ const CategoryList = () => {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`${API_URL}/api/categories/${id}`);
+            await axios.delete(`${API_URL}/api/categories/${id}`, {headers:{Authorization: `Bearer ${authToken}`}});
             setAlert({ show: true, message: 'Category deleted successfully', type: 'success' });
             fetchCategories();
         } catch (error) {

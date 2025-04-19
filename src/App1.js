@@ -149,3 +149,30 @@ const handleEdit = (slideshow) => {
 };
 
 export default SlideshowList;
+
+
+
+// try {
+//     if (isEdit) {
+//         const response = await axios.post(
+//           `${API_URL}/api/categories/${category.id}`,
+//           {
+//             ...category,
+//             "_method": "Put"
+//           },
+//           {
+//             headers: {
+//                 Authorization: `Bearer ${authToken}`,
+//               "Content-Type": "multipart/form-data"
+//             }
+//           }
+//         );
+//     } else {
+//         await axios.post(`${API_URL}/api/categories`, formData, {
+//             headers: { Authorization: `Bearer ${authToken}`, 'Content-Type': 'multipart/form-data' },
+//         });
+//     }
+
+// } catch (error) {
+//     console.error('Error saving category:', error);
+// }

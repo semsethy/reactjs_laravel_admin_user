@@ -7,10 +7,24 @@ import { Link } from 'react-router-dom';
 const Header = () => {
   const [isActive, setIsActive] = useState(false);  
   const { isOpen, setIsOpen } = useContext(SidebarContext);  
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // mock login state
+  const [showUserMenu, setShowUserMenu] = useState(false); // for dropdown toggle
   const { itemAmount } = useContext(CartContext); 
+  const token = localStorage.getItem('auth_token') || sessionStorage.getItem('auth_token');
+  const handleLogout = () => {
+    localStorage.removeItem('auth_token');
+    sessionStorage.removeItem('auth_token');
+    setShowUserMenu(false);
+    window.location.reload(); // Optionally refresh to force re-render or redirect
+  };
+
+  const handleLogin = () => {
+    // Redirect to login page
+    window.location.href = '/login'; // or use `navigate('/login')` if using React Router hooks
+  };
+
   return (
     <>
-      
         {/* Header Section Starts */}
         <header className="header_section sticky-header">
           <div className="container">
@@ -147,6 +161,38 @@ const Header = () => {
                       <i className="fa fa-search" aria-hidden="true"></i>
                     </button>
                   </form>
+                  {/* User Icon */}
+                  <li className="nav-item user-icon-dropdown" style={{ position: 'relative' }}>
+                  <span
+                    className="nav-link"
+                    style={{ cursor: 'pointer' }}
+                    onClick={() => setShowUserMenu(!showUserMenu)}
+                  >
+                    <i className="fa fa-user-circle" style={{ fontSize: '24px' }}></i>
+                  </span>
+
+                  {/* Dropdown */}
+                  {showUserMenu && (
+                    <div className="user-dropdown" style={{
+                      position: 'absolute',
+                      top: '40px',
+                      right: 0,
+                      background: '#fff',
+                      border: '1px solid #ccc',
+                      borderRadius: '5px',
+                      zIndex: 10,
+                      padding: '10px',
+                      minWidth: '120px',
+                    }}>
+                      {token ? (
+                        <button className="dropdown-item" onClick={handleLogout}>Logout</button>
+                      ) : (
+                        <button className="dropdown-item" onClick={handleLogin}>Login</button>
+                      )}
+                    </div>
+                  )}
+                </li>
+
                 </ul>
               </div>
             </nav>

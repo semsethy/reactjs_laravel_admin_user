@@ -42,7 +42,7 @@ const ProductList = () => {
     const handleDelete = async (product) => {
         let response;
         try{
-            response = await axios.delete(`${API_URL}/api/products/${product.id}`);
+            response = await axios.delete(`${API_URL}/api/products/${product.id}`,{headers:{Authorization: `Bearer ${token}`}});
             console.log('product deleted successfully:', response.data);
             fetchProducts(page, productsPerPage);
         } catch(error){
@@ -66,22 +66,6 @@ const ProductList = () => {
             <div className="mb-4" style={{ textAlign: 'right' }}>
                 <a href="/admin/product_add" style={{ backgroundColor: '#28a745', color: 'white', borderRadius: '4px', padding: '8px 12px', border: 'none', cursor: 'pointer' }}>+ New</a>
             </div>
-
-            {/* Dropdown for selecting number of products per page */}
-            {/* <div className="mb-3">
-                <label htmlFor="itemsPerPage" className="form-label">Products per page:</label>
-                <select
-                    id="itemsPerPage"
-                    value={productsPerPage}
-                    className="form-select"
-                    aria-label="Select number of products per page"
-                >
-                    <option value={5}>5</option>
-                    <option value={10}>10</option>
-                    <option value={15}>15</option>
-                    <option value={20}>20</option>
-                </select>
-            </div> */}
 
             <div className="table-container">
                 <div className="card p-3">

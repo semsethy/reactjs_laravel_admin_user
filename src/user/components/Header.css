@@ -17,8 +17,8 @@
   /* Position and style the cart item count bubble */
 .cart-item-count {
     position: absolute;
-    top: 15px; /* Adjust as needed */
-    right: 55px; /* Adjust as needed */
+    top: 25px; /* Adjust as needed */
+    right: 115px; /* Adjust as needed */
     transform: translate(50%, -50%); /* This centers the count bubble relative to the icon */
     width: 18px;  /* Size of the bubble */
     height: 18px; /* Size of the bubble */

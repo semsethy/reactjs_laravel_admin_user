@@ -5,42 +5,48 @@ import AdminPage from './AdminPage';
 import LoginPage from './Auth/login';
 import RegisterPage from './Auth/register';
 import Logout from './Auth/logout';
+import { Navigate } from 'react-router-dom';
 
 const App = () => {
   return (
     <div className="overflow-hidden">
       <Router>
-        <Routes>
-          {/* User Pages */}
-          <Route path="/*" element={<UserPage />} />
-          {/* Admin Pages */}
-          <Route path="/admin/*" element={<AdminPageWithRedirect />} />
-          {/* Login Page */}
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/logout" element={<Logout />} />
-        </Routes>
+      <Routes>
+        {/* Login/Register/Logout (Public) */}
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/logout" element={<Logout />} />
+
+        {/* Admin Pages (Protected) */}
+        <Route path="/admin/*" element={<AdminPageWithRedirect />} />
+
+        {/* User Pages (Protected) */}
+        <Route path="/*" element={<UserPageWithRedirect />} />
+      </Routes>
       </Router>
     </div>
   );
 };
 
+const UserPageWithRedirect = () => {
+  const token = localStorage.getItem('auth_token') || sessionStorage.getItem('auth_token');
+
+  if (!token) {
+    return <Navigate to="/login" replace />;
+  }
+
+  return <UserPage />;
+};
+
 const AdminPageWithRedirect = () => {
-  const navigate = useNavigate();
+  const token = localStorage.getItem('auth_token') || sessionStorage.getItem('auth_token');
 
-  useEffect(() => {
-    // Check for token in localStorage or sessionStorage
-    const token = localStorage.getItem('auth_token') || sessionStorage.getItem('auth_token');
-
-    if (!token) {
-      // If there's no token, redirect to the login page
-      navigate('/login');
-    } else {
-      // Optionally make a backend call to validate the token here
-    }
-  }, [navigate]);
+  if (!token) {
+    return <Navigate to="/login" replace />;
+  }
 
   return <AdminPage />;
 };
+
 
 export default App;

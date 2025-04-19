@@ -41,7 +41,7 @@ useEffect(() => {
 const handleDelete = async (slideshow) => {
   let response;
   try{
-      response = await axios.delete(`${API_URL}/api/slideshows/${slideshow.id}`);
+      response = await axios.delete(`${API_URL}/api/slideshows/${slideshow.id}`, {headers:{Authorization: `Bearer ${authToken}`}});
       console.log('slideshow deleted successfully:', response.data);
       fetchSlideshows(page, slideshowsPerPage);
   } catch(error){
