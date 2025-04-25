@@ -7,7 +7,7 @@ const ContactUs = () => {
   return <div>
             
             <section class="why_section layout_padding">
-                <div className="heading_container heading_center">
+                <div className="heading_container heading_center pt-4">
                     <h2>
                         Contact <span>Us Here</span>
                     </h2>

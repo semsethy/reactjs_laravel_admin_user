@@ -4,8 +4,8 @@ import './Delivery.css';
 
 const Blog = () => {
   return <div>
-            <Delivery/>
-            <div className="about-us-page">
+  <Delivery/>
+  <div className="about-us-page">
   {/* Hero Section */}
   <section className="hero-section">
     <div className="container">

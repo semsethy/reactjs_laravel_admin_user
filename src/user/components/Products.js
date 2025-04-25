@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 
 const API_URL = 'http://127.0.0.1:8000';
 
+
 const Products = () => {
   const { products } = useContext(ProductContext); // Get products from ProductContext
   const { addToCart } = useContext(CartContext); // Get addToCart function from CartContext
@@ -37,9 +38,9 @@ const Products = () => {
   return (
     <>
       {/* Product Section */}
-      <section className="product_section layout_padding">
+      <section className="product_section layout_padding ">
         <div className="container">
-          <div className="heading_container heading_center">
+          <div className="heading_container heading_center pt-4">
             <h2>
               Our <span>products</span>
             </h2>
@@ -84,9 +85,9 @@ const Products = () => {
                     <div className="detail-box">
                       {/* Ensure you're rendering the correct properties from the product */}
                       <h5>{product_name}</h5>
-                      <h6 style={{ color: 'gray' }}>{description}</h6>
+                      {/* <h6 style={{ color: 'gray' }}>{description}</h6> */}
                       <h6 style={{ color: 'red' }}>${price}</h6>
-                      <h6>Stock Quantity: {stock_quantity}</h6>
+                      {/* <h6>Stock Quantity: {stock_quantity}</h6> */}
                     </div>
                   </div>
                 </div>
@@ -95,7 +96,7 @@ const Products = () => {
           </div>
 
           <div className="btn-box">
-            <Link to="/product">View All products</Link>
+            <Link to="/products">View All products</Link>
           </div>
         </div>
       </section>

@@ -12,7 +12,7 @@ const ProductProvider = ({ children }) => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get(`${API_URL}/api/products`, {
+        const response = await axios.get(`${API_URL}/api/gets`, {
           headers: {
             'Authorization': `Bearer ${token}` // Send the token in Authorization header
           }
@@ -40,3 +40,5 @@ const ProductProvider = ({ children }) => {
 };
 
 export default ProductProvider;
+
+

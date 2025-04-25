@@ -1,7 +1,6 @@
 import React from 'react';
-import img from '../images/logos/67d086725d576.png';
+import img from '../images/logos/illustrated-store-front-logo-with-striped-awning-free-vector.jpg';
 import { NavLink } from 'react-router-dom'; // Use NavLink for active styling
-
 const Nav = () => {
   return (
     <aside className="left-sidebar">

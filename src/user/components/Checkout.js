@@ -23,7 +23,7 @@ const Checkout = () => {
           cart.map((item) => (
             <div key={item.id} className="cart-item2">
               <div>
-                {item.title} 
+                {item.product_name} 
                 <span style={{ color: 'brown'  }}> x </span>
                 <span style={{ color: 'brown' }}>{item.amount}</span>
               </div>

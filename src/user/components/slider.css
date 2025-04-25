@@ -1,35 +1,127 @@
-.slideshow-container {
-    /* max-width: 1300px; */
-    width: 100%;
-    padding-top: 90px;
-    margin: 0 auto;
-    /* border-radius: 8px; */
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.section-slide {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  padding-top: 100px;
+}
+
+.wrap-slick1 {
+  width: 100%;
+  height: 100vh;
+}
+
+.slick1 {
+  height: 100vh;
+}
+
+.item-slick1 {
+  position: relative;
+  height: 91vh;
+  display: flex;
+  overflow: hidden;
+}
+
+.item-slick1 img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Optional dark overlay for better text readability */
+.item-slick1::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.container1 {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  margin-left: 15%;
+  height: 100%; /* Add this */
+  display: flex; /* Add this */
+  align-items: center; /* Center children vertically */
+}
+
+
+.flex-col-l-m {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: white;
+}
+
+
+.layer-slick1 span,
+.layer-slick1 h2 {
+  margin-bottom: 1rem;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.layer-slick1 a {
+  background-color: #111;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1.2vw;
+}
+.layer-slick1 span {
+  font-size: 1.2vw;
+}
+.layer-slick1 h2 {
+  font-size: 2.8vw;
+}
+
+.layer-slick1 a:hover {
+  background-color: #333;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    margin-left: 20px;
   }
-  
-  .slideshow-item img {
-    max-height: 700px;
-    object-fit: cover;
-  }
-  
-  .carousel-caption {
-    background-color: rgba(0, 0, 0, 0.5);
-    /* border-radius: 8px; */
-    padding: 20px;
-  }
-  
-  .carousel-caption h3 {
-    font-size: 2rem;
-    font-weight: bold;
-    color: white;
-  }
-  
-  .carousel-caption p {
+
+  .layer-slick1 span,
+  .layer-slick1 h2 {
     font-size: 1.2rem;
   }
-  .carousel-caption button {
-    font-size: 1rem;
-    padding: 10px;
-    border-radius: 8px;
-  }
+}
+
+.custom-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  font-size: 2rem;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 10px;
+  /* border-radius: 50%; */
+  cursor: pointer;
+  user-select: none;
+}
+
+.next-arrow {
+  right: 25px;
+}
+
+.prev-arrow {
+  left: 25px;
+}
+
+.custom-arrow:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}

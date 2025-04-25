@@ -12,7 +12,7 @@ const Delivery = () => {
             {/* Why section */}
             <section className="why_section layout_padding">
                 <div className="container">
-                    <div className="heading_container heading_center">
+                    <div className="heading_container heading_center pt-4">
                         <h2>Why Shop <span>With Us</span></h2>
                     </div>
                     <div className="row">

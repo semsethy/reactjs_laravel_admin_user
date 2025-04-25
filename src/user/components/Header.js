@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { SidebarContext } from '../contexts/SidebarContext';  // Context to handle sidebar state
 import { CartContext } from '../contexts/CartContext'; 
-import img from '../images/logo1.png';
+import img from '../images/logoA1.png';
 import './Header.css';
 import { Link } from 'react-router-dom';
 const Header = () => {
@@ -30,7 +30,7 @@ const Header = () => {
           <div className="container">
             <nav className="navbar navbar-expand-lg custom_nav-container">
               <Link className="navbar-brand" to="/">
-                <img width="100" src={img} alt="Logo" />
+                <img width="60" src={img} alt="Logo" />
               </Link>
               <button
                 className="navbar-toggler"
@@ -44,14 +44,14 @@ const Header = () => {
                 <span className=""></span>
               </button>
               <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul className="navbar-nav">
+              <ul className="navbar-nav">
                   <li className="nav-item ">
                     <Link className="nav-link" to="/">
                       Home <span className="sr-only">(current)</span>
                     </Link>
                   </li>
                   <li className="nav-item dropdown">
-                    <Link
+                    {/* <Link
                       className="nav-link dropdown-toggle"
                       to="#"
                       data-toggle="dropdown"
@@ -60,7 +60,7 @@ const Header = () => {
                       aria-expanded="true"
                     >
                       <span className="nav-label">Pages <span className="caret"></span></span>
-                    </Link>
+                    </Link> */}
                     <ul className="dropdown-menu">
                       <li>
                         <Link to="/aboutus">About</Link>
@@ -85,6 +85,11 @@ const Header = () => {
                       Contact
                     </Link>
                   </li>
+                  
+
+                </ul>
+                <ul className="navbar-nav">
+                  
                   <li className="nav-item">
                     <Link class="nav-link" onClick={() => setIsOpen(!isOpen)}>
                       <svg
@@ -192,7 +197,6 @@ const Header = () => {
                     </div>
                   )}
                 </li>
-
                 </ul>
               </div>
             </nav>
